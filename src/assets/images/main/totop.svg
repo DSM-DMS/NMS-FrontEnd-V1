@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="54" viewBox="0 0 40 54">
+  <g id="그룹_22" data-name="그룹 22" transform="translate(-1597 -978)">
+    <g id="사각형_28" data-name="사각형 28" transform="translate(1597 978)" fill="#4d91c6" stroke="#4d91c6" stroke-width="2">
+      <rect width="40" height="54" stroke="none"/>
+      <rect x="1" y="1" width="38" height="52" fill="none"/>
+    </g>
+    <path id="Icon_ionic-md-arrow-dropup" data-name="Icon ionic-md-arrow-dropup" d="M9,22.5l9-9,9,9Z" transform="translate(1599 986.5)" fill="#fff"/>
+  </g>
+</svg>
