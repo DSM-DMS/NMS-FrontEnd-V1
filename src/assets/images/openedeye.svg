@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <g id="그룹_149" data-name="그룹 149" transform="translate(-1606 -556)">
+    <path id="Icon_ionic-md-eye" data-name="Icon ionic-md-eye" d="M14.25,7.383a12.9,12.9,0,0,0-12,8,13,13,0,0,0,24,0A12.9,12.9,0,0,0,14.25,7.383Zm0,13.335A5.336,5.336,0,1,1,19.7,15.383,5.41,5.41,0,0,1,14.25,20.718Zm0-8.535a3.2,3.2,0,1,0,3.273,3.2A3.248,3.248,0,0,0,14.25,12.183Z" transform="translate(1609.75 558.617)" fill="#707070"/>
+    <g id="사각형_66" data-name="사각형 66" transform="translate(1606 556)" fill="none" stroke="#fff" stroke-width="1">
+      <rect width="36" height="36" stroke="none"/>
+      <rect x="0.5" y="0.5" width="35" height="35" fill="none"/>
+    </g>
+  </g>
+</svg>
