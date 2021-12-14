@@ -9,11 +9,12 @@ import SMALLCIRCLEBLUE from '../../../assets/images/main/cartegory/bluesmallcirc
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { useEffect } from "react";
+import {usePath} from "../../../functions/usePath";
 
 function Cartegory() {
   const [tcart, setTcart] = useState(false);
   const [tgrade, setTgrade] = useState(false);
-  const [path, setPath] = useState("");
+  const [path, setPath] = useState(usePath());
   const nevigate = useNavigate();
 
   function Blocks({ src, text, grade, onClick , style }) {
