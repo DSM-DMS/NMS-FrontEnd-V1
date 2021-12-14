@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { S } from "./style";
 import X from "../../assets/images/signup/x.svg";
+import { onSignup } from "../../functions/onSignup";
+import { verfyEmail } from "../../functions/verify";
 
-function Identify({setModal , modal}) {
+function Identify({setModal , modal, ref, info}) {
 
     const refinput = useRef();
     const [num , setNum] = useState([]);
@@ -10,7 +12,6 @@ function Identify({setModal , modal}) {
     function time(){
         setTimeout(()=>{
             if(modal){
-              refinput.current.focus();
               time();
             }
         },100)
@@ -30,7 +31,7 @@ function Identify({setModal , modal}) {
         else if (refinput.current.value.length>1){
             const temp =refinput.current.value.substr(1,2)
             var number = temp.search(/[0-9]/g);
-            if(!number && num.length<6){
+            if(/* !number && */ num.length<6){
                 setNum([...num,temp]);
             }
             refinput.current.value = '1';
@@ -39,13 +40,27 @@ function Identify({setModal , modal}) {
         
     }
 
+    const coderef = useRef(0);
     const onClick = () => {
+      //refName,refUsername,refPassword,depart,refEmail
         console.log(num.join(''));
+        const code = num.join('');
+        const name = info.refName;
+        const username = info.refUsername;
+        const password = info.refPassword;
+        const depart = info.depart;
+        const email = info.refEmail;
+        if(verfyEmail(code,coderef)){
+          console.log('인증 성공');
+          onSignup(name.current.value,username.current.value,password.current.value,depart,email.current.value);
+        }
     }
     
 
   return (
-    <S.ModalWrapper style={modal?{display:'flex'}:{display:'none'}}>
+    <S.ModalWrapper style={modal?{display:'flex'}:{display:'none'}} onClick={()=>{
+      refinput.current.focus();
+    }}>
       <S.ModalBox>
         <S.X src={X} onClick={()=>setModal(false)} />
         <S.InvisibleInput ref={refinput} onChange={()=>onChange()} />

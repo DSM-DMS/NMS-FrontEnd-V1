@@ -13,29 +13,34 @@ export const S = {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    position:absolute;
-    overflow-x:hidden;
+    position: absolute;
+    overflow-x: hidden;
+    overflow-y:hidden;
   `,
   TopImg: styled.img`
     position: absolute;
     top: 0px;
     left: 0px;
-    pointer-events:none;
+    pointer-events: none;
+    width: 200px;
   `,
   SignUpImg: styled.img`
     position: absolute;
     bottom: 0px;
     left: 0px;
-    pointer-events:none;
+    pointer-events: none;
+    width:645px;
   `,
   BottomImg: styled.img`
     position: absolute;
     bottom: 0px;
     right: 0px;
-    pointer-events:none;
+    pointer-events: none;
+    width: 300px;
   `,
 
   InputsWrapper: styled.div`
+    zoom: 75%;
     height: 700px;
     width: 690px;
     box-sizing: border-box;
@@ -88,7 +93,7 @@ export const S = {
       height: 85%;
       width: 82%;
       transition: 0.3s;
-      background-color:rgb(0,0,0,0);
+      background-color: rgb(0, 0, 0, 0);
       :focus {
         color: black;
         transition: 0.3s;
@@ -140,7 +145,7 @@ export const S = {
     box-sizing: border-box;
     border-radius: 50px;
     align-self: flex-end;
-    cursor:pointer;
+    cursor: pointer;
     :hover {
       background-color: white;
       color: #4d91c6;
@@ -154,7 +159,7 @@ export const S = {
     margin-left: 11px;
     padding: 5px;
     transition: 0.3s;
-    pointer-events:none;
+    pointer-events: none;
     cursor: pointer;
   `,
   ListWrapper: styled.div`
@@ -189,110 +194,107 @@ export const S = {
       cursor: pointer;
     }
   `,
-  ModalWrapper:styled.div`
-    width:100% ;
-    height:100vh;
-    background-color:rgb(0,0,0,0.5);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    position:absolute;
-    z-index:2;
+  ModalWrapper: styled.div`
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 2;
   `,
-  ModalBox:styled.div`
-    width:582px;
-    height:486px;
-    background-color:white;
-    position:absolute;
-    border-radius:20px;
-    font-family:Noto Sans CJK KR;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  `,
-
-    Box:styled.div`
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:space-between;
-    width:343px;
-    height:308px;
-
-    `,
-
-  X:styled.img`
-    position:absolute;
-    top:35px;
-    right:37px;
-  `,
-  ModalHeader:styled.div`
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-
-  `,
-  ModalTitle:styled.span`
-    font-weight:bold;
-    font-size:28px;
-  `,
-  ModalSubtitle:styled.span`
-    font-size:16px;
-  `,
-  ModalInputWrapper:styled.div`
-  width:340px;
-  height:40px;
-  display:flex;
-  flex-direction:row;
-  align-items:center;
-  justify-content:space-between;
-  `,
-  ModalInputBox:styled.div`
-    width:40px;
-    height:40px;
-    border-radius:5px;
-    border:1px solid #707070;
-    box-sizing:border-box;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+  ModalBox: styled.div`
+    width: 582px;
+    height: 486px;
+    background-color: white;
+    position: absolute;
+    border-radius: 20px;
+    font-family: Noto Sans CJK KR;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   `,
 
-  ModalFooter:styled.div`
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  div{
-      display:flex;
-      flex-direction:row;
-      align-items:center;
-      font-size:12px;
-      padding-top:8px;
-      p{
+  Box: styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 343px;
+    height: 308px;
+  `,
 
+  X: styled.img`
+    position: absolute;
+    top: 35px;
+    right: 37px;
+  `,
+  ModalHeader: styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  `,
+  ModalTitle: styled.span`
+    font-weight: bold;
+    font-size: 28px;
+  `,
+  ModalSubtitle: styled.span`
+    font-size: 16px;
+  `,
+  ModalInputWrapper: styled.div`
+    width: 340px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  `,
+  ModalInputBox: styled.div`
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #707070;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  `,
+
+  ModalFooter: styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      font-size: 12px;
+      padding-top: 8px;
+      p {
       }
-      span{
-          margin-left:3px;
-          color:#4D91C6;
-          text-decoration:underline;
+      span {
+        margin-left: 3px;
+        color: #4d91c6;
+        text-decoration: underline;
       }
-  }
+    }
   `,
-  ModalButton:styled.button`
-    width:343px;
-    height:40px;
-    background-color:#4D91C6;
-    font-size:16px;
-    color:white;
-    border-radius:50px;
-    border:none;
-    outline:none;
-    font-weight:500;
+  ModalButton: styled.button`
+    width: 343px;
+    height: 40px;
+    background-color: #4d91c6;
+    font-size: 16px;
+    color: white;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    font-weight: 500;
   `,
-  InvisibleInput:styled.input`
-    position:absolute;
-    bottom:0px;
-    opacity:0;
-    cursor:default;
+  InvisibleInput: styled.input`
+    position: absolute;
+    bottom: 0px;
+    opacity: 0;
+    cursor: default;
   `,
 };

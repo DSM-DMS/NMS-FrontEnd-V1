@@ -8,6 +8,8 @@ import ONARROW from "../../assets/images/signup/onarrow.svg";
 import OutsideAlerter from "../../functions/useOutsideAlerter";
 import Identify from "./Identify";
 import axios from "axios";
+import { onSignup } from "../../functions/onSignup";
+import { sendEmail } from "../../functions/verify";
 
 function Signup() {
   const inputref = useRef();
@@ -43,7 +45,7 @@ function Signup() {
   ];
   const departlen = departments.length;
 
-  const Check = () => {
+  const Check =async () => {
     //이름
     if (!refName.current.value || refName.current.value === "") {
       alert("이름을 입력해주세요.");
@@ -92,22 +94,23 @@ function Signup() {
         return true;
       }
     }
-    if(!checkPassword()){
-        return;
+    if (!checkPassword()) {
+      return;
     }
 
     //비확
     if (!refPasscheck.current.value || refPasscheck.current.value === "") {
-        alert("비밀번호 확인란을 입력해주세요.");
-        return;
+      alert("비밀번호 확인란을 입력해주세요.");
+      return;
     }
-    if(refPassword.current.value !== refPasscheck.current.value){
-        alert('비밀번호가 일치하지 않습니다.');
-        return;
-
+    if (refPassword.current.value !== refPasscheck.current.value) {
+      alert("비밀번호가 일치하지 않습니다.");
+      return;
     }
-    alert('이메일로 인증번호를 전송했습니다.');
+    alert("이메일로 인증번호를 전송했습니다.");
+    sendEmail(refEmail.current.value);
     setModal(true);
+    /* setModal(true); */
   };
 
   const [verified, setVerify] = useState("");
@@ -118,12 +121,17 @@ function Signup() {
   const refPassword = useRef();
   const refPasscheck = useRef();
   const refEmail = useRef();
+  const verfyCode = useRef();
   // const refDepart = useRef();
   // depart useState있음
 
   return (
     <>
-      <Identify setModal={setModal} modal={modal} />
+      <Identify ref={verfyCode} info={{refName,
+      refUsername,
+      refPassword,
+      depart,
+      refEmail}} setModal={setModal} modal={modal} />
       <S.TotalWrapper>
         <S.TopImg src={TOPIMG} />
         <S.SignUpImg src={SIGNUPIMG} />
@@ -154,7 +162,7 @@ function Signup() {
               <S.ListWrapper ref={inputref}>
                 {departments.map((value, index) => (
                   <S.Lists
-                  key={index}
+                    key={index}
                     onClick={() => {
                       setDepart(value);
                       onToggleOff();
@@ -171,7 +179,11 @@ function Signup() {
                 <input type="text" placeholder="아이디" ref={refUsername} />
               </S.InputWrapper>
               <S.InputWrapper>
-                <input type="password" placeholder="비밀번호" ref={refPassword} />
+                <input
+                  type="password"
+                  placeholder="비밀번호"
+                  ref={refPassword}
+                />
               </S.InputWrapper>
             </S.RowAlign>
             <S.RowAlign>
@@ -187,7 +199,7 @@ function Signup() {
               </S.InputWrapper>
             </S.RowAlign>
           </S.InputBody>
-          <S.SignUpButton onClick={()=>Check()}>SIGN UP</S.SignUpButton>
+          <S.SignUpButton onClick={() => Check()}>SIGN UP</S.SignUpButton>
         </S.InputsWrapper>
       </S.TotalWrapper>
     </>
